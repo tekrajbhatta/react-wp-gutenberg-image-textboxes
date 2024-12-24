@@ -30,7 +30,7 @@
                 "content": {
                     "type": "string",
                     "source": "html",
-                    "selector": "div:first-child"
+                    "selector": ".rich-text"
                 },
                 "top": {
                     "type": "string",

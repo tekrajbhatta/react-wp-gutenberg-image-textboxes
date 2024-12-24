@@ -1,4 +1,5 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
+import tickIcon from './tick.svg';
 
 function save({ attributes }) {
     const { imageUrl, textBoxes = [] } = attributes;
@@ -23,6 +24,11 @@ function save({ attributes }) {
                                 data-top={textBox.top}
                                 data-right={textBox.right}
                             >
+                                <img 
+                                    src={tickIcon} 
+                                    alt="tick" 
+                                    className="tick-icon"
+                                />
                                 <RichText.Content
                                     tagName="div"
                                     className="rich-text"

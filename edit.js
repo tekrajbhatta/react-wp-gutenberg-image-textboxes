@@ -11,6 +11,7 @@ import {
     __experimentalNumberControl as NumberControl
 } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
+import tickIcon from './tick.svg';
 
 function Edit({ attributes, setAttributes }) {
     const { imageUrl, imageId, textBoxes = [] } = attributes;
@@ -133,6 +134,11 @@ function Edit({ attributes, setAttributes }) {
                                                     data-top={textBox.top}
                                                     data-right={textBox.right}
                                                 >
+                                                    <img 
+                                                        src={tickIcon} 
+                                                        alt="Tick Icon" 
+                                                        className="tick-icon"
+                                                    />
                                                     <RichText
                                                         tagName="div"
                                                         value={textBox.content}

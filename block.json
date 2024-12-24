@@ -1,0 +1,54 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "verdure/image-textboxes",
+    "version": "1.0.0",
+    "title": "Image Textboxes",
+    "description": "Add an image and multiple text boxes with different position values on top of it.",
+    "icon": "welcome-widgets-menus",
+    "category": "vdplug",
+    "keywords": [
+        "image textboxes"
+    ],
+    "attributes": {
+        "imageUrl": {
+            "type": "string",
+            "source": "attribute",
+            "selector": "img",
+            "attribute": "src",
+            "default": ""
+        },
+        "imageId": {
+            "type": "number"
+        },
+        "textBoxes": {
+            "type": "array",
+            "default": [],
+            "source": "query",
+            "selector": ".text-box",
+            "query": {
+                "content": {
+                    "type": "string",
+                    "source": "html",
+                    "selector": "div:first-child"
+                },
+                "top": {
+                    "type": "string",
+                    "source": "attribute",
+                    "attribute": "data-top",
+                    "default": "0"
+                },
+                "right": {
+                    "type": "string",
+                    "source": "attribute",
+                    "attribute": "data-right",
+                    "default": "0"
+                }
+            }
+        }
+    },
+    "example": {},
+    "textdomain": "vdplug",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

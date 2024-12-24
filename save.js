@@ -17,13 +17,17 @@ function save({ attributes }) {
                                 key={index}
                                 className="text-box"
                                 style={{
-                                    top: `${textBox.top}%`,
-                                    right: `${textBox.right}%`
+                                    top: `${textBox.top}px`,
+                                    right: `${textBox.right}px`
                                 }}
                                 data-top={textBox.top}
                                 data-right={textBox.right}
                             >
-                                <div className="rich-text">{textBox.content}</div>
+                                <RichText.Content
+                                    tagName="div"
+                                    className="rich-text"
+                                    value={textBox.content}
+                                />
                             </div>
                         ))}
                     </div>

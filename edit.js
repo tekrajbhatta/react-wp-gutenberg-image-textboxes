@@ -8,7 +8,7 @@ import {
 import {
     Button,
     PanelBody,
-    RangeControl
+    __experimentalNumberControl as NumberControl
 } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
 
@@ -77,19 +77,19 @@ function Edit({ attributes, setAttributes }) {
                         title={__(`Text Box ${index + 1} Position`)}
                         initialOpen={false}
                     >
-                        <RangeControl
-                            label={__('Top Position (%)')}
+                        <NumberControl
+                            label={__('Top Position (px)')}
                             value={parseInt(textBox.top) || 0}
                             onChange={(value) => updateTextBoxPosition(index, 'top', value)}
-                            min={0}
-                            max={100}
+                            min={-500}
+                            max={500}
                         />
-                        <RangeControl
-                            label={__('Right Position (%)')}
+                        <NumberControl
+                            label={__('Right Position (px)')}
                             value={parseInt(textBox.right) || 0}
                             onChange={(value) => updateTextBoxPosition(index, 'right', value)}
-                            min={0}
-                            max={100}
+                            min={-500}
+                            max={500}
                         />
                     </PanelBody>
                 ))}
@@ -127,8 +127,8 @@ function Edit({ attributes, setAttributes }) {
                                                     key={index}
                                                     className="text-box"
                                                     style={{
-                                                        top: `${textBox.top}%`,
-                                                        right: `${textBox.right}%`
+                                                        top: `${textBox.top}px`,
+                                                        right: `${textBox.right}px`
                                                     }}
                                                     data-top={textBox.top}
                                                     data-right={textBox.right}
@@ -142,7 +142,6 @@ function Edit({ attributes, setAttributes }) {
                                                     <Button
                                                         onClick={() => removeTextBox(index)}
                                                         variant="secondary"
-                                                        isSmall
                                                     >
                                                         {__('Remove')}
                                                     </Button>
